@@ -187,3 +187,36 @@ html {
 		height: 60px;
 	}
 }
+
+.overlay {
+	position: fixed;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	width: 100%;
+	height: 100vh;
+	z-index: 0;
+
+	&::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		width: 100%;
+		height: 100vh;
+		pointer-events: none;
+		background: $overGadient;
+	}
+
+	img {
+		transition: 0.4s;
+		opacity: 0;
+
+		&.active {
+			opacity: 1;
+		}
+	}
+}
