@@ -171,6 +171,11 @@ html {
 	text-size-adjust: 100%;
 }
 
+section {
+	position: relative;
+	z-index: 1;
+}
+
 .frame {
 	position: absolute;
 	opacity: 0.5;
