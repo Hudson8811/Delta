@@ -175,6 +175,7 @@ html {
 	opacity: 0.5;
 	width: 114px;
 	height: 114px;
+	pointer-events: none;
 
 	@include media(tablet-1200) {
 		width: 87px;
