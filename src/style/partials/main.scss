@@ -57,6 +57,64 @@ body {
 	background: #ffffff;
 	font-family: $mainFont;
 	font-size: 18px;
+
+	&.game-is-on {
+		.header {
+			background-color: #000000;
+		}
+
+		.footer {
+			background-color: #000000;
+
+			&__inner {
+				padding: 0 24px;
+
+				@include media(tablet-1440) {
+					padding: 12px 19px;
+				}
+		
+				@include media(mobile) {
+					padding: 6px 14px;
+				}
+		
+				@include media(400) {
+					padding: 6px 5px;
+				}
+			}
+
+			&__lives {
+				display: flex;
+
+				@include media(mobile) {
+					display: none;
+				}
+			}
+
+			&__text {
+				display: block;
+
+				@include media(mobile) {
+					display: none;
+				}
+
+				&--mobile {
+					display: none;
+
+					@include media(mobile) {
+						display: block;
+					}
+				}
+			}
+
+			&__button {
+				@include media(mobile) {
+					display: block;
+					margin-right: 0;
+					margin-left: 0;
+				}
+			}
+		}
+	}
 }
 
 .main {
@@ -123,7 +181,7 @@ html {
 		height: 87px;
 	}
 
-	@include media(mobile-620) {
+	@include media(mobile) {
 		width: 60px;
 		height: 60px;
 	}
