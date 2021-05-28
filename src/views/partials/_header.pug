@@ -1,5 +1,21 @@
-header.site-header
-	.sh-burger
-		span
-
-	
+header.header
+	.container.header__container 
+		img(src="./img/frame.svg", alt="").frame.header__frame
+		.header__inner
+			a(href="/").header__logo
+				img(src="./img/logo.svg", alt="")
+			nav.header__nav 
+				ul 
+					li 
+						a(href="#") дом и домочадцы
+					li 
+						a(href="#") автомобиль
+					li 
+						a(href="#") ценности
+					li 
+						a(href="#") промо
+			button.header__button
+				img(src="img/graph.svg", alt="")
+			a(href="/").header__link
+				img(src="img/woman.svg", alt="")
+		img(src="img/frame.svg", alt="").frame.header__frame.header__frame--right

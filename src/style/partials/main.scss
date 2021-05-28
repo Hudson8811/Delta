@@ -53,10 +53,10 @@ body {
 	display: flex;
 	flex-direction: column;
 	margin: 0;
-	color: #323340;
+	color: #ffffff;
 	background: #ffffff;
 	font-family: $mainFont;
-	font-size: 16px;
+	font-size: 18px;
 }
 
 .main {
@@ -64,10 +64,11 @@ body {
 }
 html,body{
 	height: 100%;
+	background-color: #000000;
 }
 .container {
 	box-sizing: border-box;
-	width: 981px;
+	width: 1574px;
 	max-width: 95%;
 	max-width: calc(100% - 30px * 2);
 	margin: 0 auto;
@@ -75,7 +76,7 @@ html,body{
 
 @media screen and (max-width: 550px) {
 	.container {
-		max-width: calc(100% - 15px * 2);
+		max-width: calc(100% - 20px * 2);
 	}
 }
 
@@ -111,3 +112,19 @@ html {
 	text-size-adjust: 100%;
 }
 
+.frame {
+	position: absolute;
+	opacity: 0.5;
+	width: 114px;
+	height: 114px;
+
+	@include media(tablet-1200) {
+		width: 87px;
+		height: 87px;
+	}
+
+	@include media(mobile-620) {
+		width: 60px;
+		height: 60px;
+	}
+}
