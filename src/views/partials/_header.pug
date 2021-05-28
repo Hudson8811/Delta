@@ -15,7 +15,9 @@ header.header
 					li 
 						a(href="#") промо
 			button.header__button
-				img(src="img/graph.svg", alt="")
+				<svg class="header__button-icon">
+					<use xlink:href="img/sprite.svg#graph"></use>
+				</svg>
 			a(href="/").header__link
 				img(src="img/woman.svg", alt="")
 		img(src="img/frame.svg", alt="").frame.header__frame.header__frame--right

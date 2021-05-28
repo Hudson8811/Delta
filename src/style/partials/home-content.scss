@@ -1,0 +1,272 @@
+.home-content {
+	position: relative;
+	z-index: 1;
+	display: flex;
+
+	&__container {
+		position: relative;
+	}
+
+	&__inner {
+		display: flex;
+		flex-direction: column;
+		margin-top: calc(100vw / 25);
+
+		@include media(tablet-1200) {
+			margin-top: calc(100vw / 10);
+		}
+
+		@include media(tablet-993) {
+			margin-top: 20px;
+		}
+	}
+
+	&__top {
+		display: flex;
+		align-items: center;
+
+		@include media(1600) {
+			justify-content: center;
+		}
+
+		@include media(tablet-993) {
+			flex-direction: column;
+		}
+	}
+
+	&__left {
+		display: flex;
+		flex-direction: column;
+		margin-right: 51px;
+		margin-left: 95px;
+
+		@include media(1600) {
+			margin-left: 0;
+		}
+
+		@include media(tablet-993) {
+			max-width: 600px;
+			margin-right: 0;
+		}
+
+		&-text {
+			font-family: $secondaryFont;
+			text-transform: uppercase;
+			font-size: 42px;
+			line-height: 51px;
+			color: #FFFFFF;
+			padding-left: 8px;
+		}
+	}
+
+	&__right {
+		display: flex;
+		flex-direction: column;
+		max-width: 543px;
+		padding-right: 40px;
+		font-size: 18px;
+		line-height: 21px;
+		letter-spacing: 0.03em;
+
+		@include media(tablet-1200) {
+			font-size: 16px;
+			line-height: 18px;
+			max-width: 40%;
+		}
+
+		@include media(tablet-993) {
+			max-width: 600px;
+			padding-right: 0;
+			padding-left: 6px;
+			margin-top: 15px;
+		}
+
+		&-text {
+			margin-top: 22px;
+
+			@include media(tablet-993) {
+				margin-top: 15px;
+			}
+		}
+
+		span {
+			font-weight: bold;
+
+			&:not(:first-child) {
+				margin-top: 40px;
+
+				@include media(tablet-993) {
+					margin-top: 25px;
+				}
+			}
+		}
+		
+		&-image {
+			position: absolute;
+			right: -26px;
+			top: 68px;
+
+			@include media(mobile) {
+				display: none;
+			}
+		}
+	}
+	&__bottom {
+		display: flex;
+		justify-content: center;
+		margin-top: 80px;
+
+		@include media(tablet-993) {
+			margin-top: 35px;
+		}
+	}
+
+	&__icon {
+		fill: #fff;
+		transition: 0.3s;
+
+		&-wrapper {
+			position: relative;
+			width: 180px;
+			height: 167px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			z-index: 10;
+
+			@include media(tablet-993) {
+				width: 80px;
+				height: 75px;
+			}
+		}
+	}
+
+	&__icons {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		width: 672px;
+
+		@include media(tablet-993) {
+			width: 310px;
+		}
+
+		&-item {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			cursor: pointer;
+			width: 178px;
+
+			@include media(tablet-993) {
+				width: 80px;
+			}
+
+			&:nth-child(1) {
+				svg {
+					width: 99px;
+					height: 89px;
+
+					@include media(tablet-993) {
+						width: 46px;
+						height: 41px;
+					}
+				}
+			}
+
+			&:nth-child(2) {
+				svg {
+					margin-top: 6px;
+					width: 123px;
+					height: 84px;
+
+					@include media(tablet-993) {
+						width: 56px;
+						height: 38px;
+					}
+				}
+			}
+
+			&:nth-child(3) {
+				svg {
+					width: 118px;
+					height: 121px;
+
+					@include media(tablet-993) {
+						width: 54px;
+						height: 56px;
+					}
+				}
+			}
+			
+
+			&:hover {
+				span {
+					display: block;
+				}
+
+				div {
+					border-width: 8px;
+
+					@include media(tablet-993) {
+						border-width: 5px;
+					}
+				}
+
+				svg {
+					fill: $blue;
+				}
+			}
+
+			span {
+				font-weight: bold;
+				font-size: 21px;
+				line-height: 25px;
+				text-transform: uppercase;
+				text-align: center;
+				margin-top: 18px;
+				display: none;
+			}
+		}
+
+		&-corner {
+			position: absolute;
+			width: 49px;
+			height: 49px;
+			border: 5px solid #ffffff;
+			pointer-events: none;
+			transition: 0.1s;
+			border-radius: 2px;
+
+			@include media(tablet-993) {
+				width: 20px;
+				height: 20px;
+			}
+
+			&:nth-child(1) {
+				top: 0;
+				left: 0;
+				border-right: none;
+				border-bottom: none;
+			}
+			&:nth-child(2) {
+				top: 0;
+				right: 0;
+				border-left: none;
+				border-bottom: none;
+			}
+			&:nth-child(3) {
+				bottom: 0;
+				left: 0;
+				border-top: none;
+				border-right: none;
+			}
+			&:nth-child(4) {
+				bottom: 0;
+				right: 0;
+				border-top: none;
+				border-left: none;
+			}
+		}
+	}
+}
