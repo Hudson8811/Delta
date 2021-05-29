@@ -264,7 +264,6 @@
 			border: 5px solid #ffffff;
 			pointer-events: none;
 			transition: 0.1s;
-			border-radius: 2px;
 
 			@include media(tablet-1440) {
 				width: 35px;
@@ -280,24 +279,28 @@
 				left: 0;
 				border-right: none;
 				border-bottom: none;
+				border-top-left-radius: 2px;
 			}
 			&:nth-child(2) {
 				top: 0;
 				right: 0;
 				border-left: none;
 				border-bottom: none;
+				border-top-right-radius: 2px;
 			}
 			&:nth-child(3) {
 				bottom: 0;
 				left: 0;
 				border-top: none;
 				border-right: none;
+				border-bottom-left-radius: 2px;
 			}
 			&:nth-child(4) {
 				bottom: 0;
 				right: 0;
 				border-top: none;
 				border-left: none;
+				border-bottom-right-radius: 2px;
 			}
 		}
 	}

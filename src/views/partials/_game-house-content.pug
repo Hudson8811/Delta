@@ -1,0 +1,50 @@
+section.game.game-house
+	.game__slide.game__slide1
+		img(src="images/game-house/game-house-bg-1.jpg", alt="")
+		.game__slide-content 
+			p.game__slide-title Кто-то рисует в подъезде и на двери вашей квартиры граффити, а по вечерам на лестничных клетках собирается подозрительного вида молодежь. Ничего критичного, но вечером из дома выходить не хочется, да и дверь отмывать надоело. Что будете делать?
+			form(action="#").game__form 
+				.game__form-question
+					input(type="radio" id="house-question1" name="slide1" value="no").game__form-input
+					label(for="house-question1").game__form-label Свяжусь с участковым — пусть это будет его головной болью. Уверена, других мер не понадобится
+					.game__form-question-error
+						span Ошибка! 
+						span Связаться с ним, конечно, надо, но не ждите быстрого решения проблемы. Все-таки участковый не сможет сутками сидеть в засаде у вашего подъезда, как средневековый рыцарь у замка прекрасной дамы.
+				.game__form-question 
+					input(type="radio" id="house-question2" name="slide1" value="no").game__form-input
+					label(for="house-question2").game__form-label Попрошу мужа поговорить с хулиганами по душам
+				.game__form-question 
+					input(type="radio" id="house-question3" name="slide1" value="no").game__form-input
+					label(for="house-question3").game__form-label Установлю камеру слежения и уже с материалами съемки пойду в полицию
+	.game__slide.game__slide2 
+	.game__slide.game__slide3
+	.game__slide.game__slide4
+	.game__slide.game__slide5
+	.container.game__container
+		.game__inner
+			.game__top 
+				.game__icon
+					.game__icon-wrapper
+						.game__icon-corner
+						.game__icon-corner
+						.game__icon-corner
+						.game__icon-corner
+						<svg class="game__icon--house">
+							<use xlink:href="img/sprite.svg#house"></use>
+						</svg>
+					span дом и домочадцы
+				.game__slides-counter 
+					span.game__slide-current 1
+					span /
+					span.game__slide-count 5
+			.game__bottom 
+				.game__icons 
+					img(src="img/game-icons.svg", alt="")
+				.game__timer
+					.game__timer-days 00
+					span :
+					.game__timer-hours 00
+					span :
+					.game__timer-minutes 03
+					span :
+					.game__timer-seconds 54

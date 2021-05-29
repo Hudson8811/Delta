@@ -1,5 +1,5 @@
 .footer {
-	padding: 39px 0 32px;
+	padding: 33px 0 28px;
 	position: absolute;
 	bottom: 0;
 	right: 0;
@@ -7,6 +7,10 @@
 
 	@media (max-height: 900px) {
 		position: static;
+	}
+
+	@media (max-height: 1000px) {
+		padding: 20px 0;
 	}
 
 	@include media(tablet-993) {

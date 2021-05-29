@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta property="og:image" content="images/logo.svg">
+    <meta name="format-detection" content="telephone=no">
+    <link href="css/main.css" rel="stylesheet">
+    <!--title= `${page.title}`-->
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header__container"> <img class="frame header__frame" src="./img/frame.svg" alt="">
+        <div class="header__inner"><a class="header__logo" href="/"><img src="./img/logo.svg" alt=""></a>
+          <nav class="header__nav"> 
+            <ul> 
+              <li> <a href="#">дом и домочадцы</a></li>
+              <li> <a href="#">автомобиль</a></li>
+              <li> <a href="#">ценности</a></li>
+              <li> <a href="#">промо</a></li>
+            </ul>
+          </nav>
+          <button class="header__button"><svg class="header__button-icon">
+<use xlink:href="img/sprite.svg#graph"></use>
+</svg>
+          </button><a class="header__link" href="/"><img src="img/woman.svg" alt=""></a>
+        </div><img class="frame header__frame header__frame--right" src="img/frame.svg" alt="">
+      </div>
+    </header>
+    <main class="main">
+      <section class="game game-house">
+        <div class="game__slide game__slide1"><img src="images/game-house/game-house-bg-1.jpg" alt="">
+          <div class="game__slide-content"> 
+            <p class="game__slide-title">Кто-то рисует в подъезде и на двери вашей квартиры граффити, а по вечерам на лестничных клетках собирается подозрительного вида молодежь. Ничего критичного, но вечером из дома выходить не хочется, да и дверь отмывать надоело. Что будете делать?</p>
+            <form class="game__form" action="#"> 
+              <div class="game__form-question">
+                <input class="game__form-input" type="radio" id="house-question1" name="slide1" value="no">
+                <label class="game__form-label" for="house-question1">Свяжусь с участковым — пусть это будет его головной болью. Уверена, других мер не понадобится</label>
+                <div class="game__form-question-error"><span>Ошибка! </span><span>Связаться с ним, конечно, надо, но не ждите быстрого решения проблемы. Все-таки участковый не сможет сутками сидеть в засаде у вашего подъезда, как средневековый рыцарь у замка прекрасной дамы.</span></div>
+              </div>
+              <div class="game__form-question"> 
+                <input class="game__form-input" type="radio" id="house-question2" name="slide1" value="no">
+                <label class="game__form-label" for="house-question2">Попрошу мужа поговорить с хулиганами по душам</label>
+              </div>
+              <div class="game__form-question"> 
+                <input class="game__form-input" type="radio" id="house-question3" name="slide1" value="no">
+                <label class="game__form-label" for="house-question3">Установлю камеру слежения и уже с материалами съемки пойду в полицию</label>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="game__slide game__slide2"> </div>
+        <div class="game__slide game__slide3"></div>
+        <div class="game__slide game__slide4"></div>
+        <div class="game__slide game__slide5"></div>
+        <div class="container game__container">
+          <div class="game__inner">
+            <div class="game__top"> 
+              <div class="game__icon">
+                <div class="game__icon-wrapper">
+                  <div class="game__icon-corner"></div>
+                  <div class="game__icon-corner"></div>
+                  <div class="game__icon-corner"></div>
+                  <div class="game__icon-corner"></div><svg class="game__icon--house">
+<use xlink:href="img/sprite.svg#house"></use>
+</svg>
+                </div><span>дом и домочадцы</span>
+              </div>
+              <div class="game__slides-counter"> <span class="game__slide-current">1</span><span>/</span><span class="game__slide-count">5</span></div>
+            </div>
+            <div class="game__bottom"> 
+              <div class="game__icons"> <img src="img/game-icons.svg" alt=""></div>
+              <div class="game__timer">
+                <div class="game__timer-days">00</div><span>:</span>
+                <div class="game__timer-hours">00</div><span>:</span>
+                <div class="game__timer-minutes">03</div><span>:</span>
+                <div class="game__timer-seconds">54</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container footer__container"><img class="frame footer__frame" src="img/frame.svg" alt="">
+        <div class="footer__inner">
+          <div class="footer__rec"><img src="img/rec-light.svg" alt=""><img src="img/rec-text.svg" alt=""></div>
+          <button class="footer__button"><img src="img/graph.svg" alt=""></button>
+          <div class="footer__lives"><img src="img/heart-fill.svg" alt=""><img src="img/heart-fill.svg" alt=""><img src="img/heart.svg" alt=""></div>
+          <div class="footer__text"> <img src="img/text2.svg" alt=""></div>
+          <div class="footer__text--mobile"><img src="img/text-mobile.svg" alt=""></div>
+          <div class="footer__social"><a href="#"><img src="img/vk.svg" alt=""></a><a href="#"><img src="img/facebook.svg" alt=""></a><a href="#"><img src="img/ok.svg" alt=""></a><a href="#"><img src="img/twitter.svg" alt=""></a></div>
+        </div><img class="frame footer__frame footer__frame--right" src="img/frame.svg" alt="">
+      </div>
+    </footer>
+    <script src="js/main.js"></script>
+  </body>
+</html>

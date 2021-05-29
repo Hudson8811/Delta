@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	const switchHomeImages = () => {
 		const buttonsWrapper = document.querySelector('.home-content__icons');
 		const backgroundImages = document.querySelectorAll('.overlay>img');
+		
+		if (!buttonsWrapper) return;
 
 		let isHovered = false;
 
@@ -27,6 +29,19 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 
 	switchHomeImages();
+
+	const startGame = () => {
+		document.body.classList.add('game-is-on');
+	}
+
+	const isGamePage = () => {
+		const regExp = /game/g;
+		return regExp.test(window.location.pathname);
+	}
+
+	if (isGamePage()) {
+		startGame(); 
+	}
 
 
 
