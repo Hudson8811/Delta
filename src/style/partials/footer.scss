@@ -38,6 +38,18 @@
 	}
 
 	&__rec {
+		display: flex;
+		align-items: center;
+
+		img {
+			&:first-child {
+				margin-right: 14px;
+
+				opacity: 1;
+
+				animation: rec 1.3s ease infinite;
+			}
+		}
 		@include media(tablet-1200) {
 			width: 100px;
 		}
@@ -199,4 +211,20 @@
 			margin-left: 20px;
 		}
 	}
+}
+
+@keyframes rec {
+
+	0% {
+		opacity: 1;
+	}
+
+	70% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+	}
+	
 }
