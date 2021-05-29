@@ -5,7 +5,11 @@
 	right: 0;
 	left: 0;
 
-	@include media(mobile) {
+	@media (max-height: 900px) {
+		position: static;
+	}
+
+	@include media(tablet-993) {
 		padding: 15px 0;
 		position: static;
 	}
