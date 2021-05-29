@@ -145,7 +145,7 @@ gulp.task('watch', function(){
 	gulp.watch([path.watch.img], gulp.series("img:build"));
 	gulp.watch([path.watch.images], gulp.series("images:build"));
 	gulp.watch([path.watch.fonts], gulp.series("fonts:build"));
-	gulp.watch([path.watch.sprite], gulp.series("files:build"));
+	gulp.watch([path.watch.sprite], gulp.series("sprite:build"));
 });
 
 gulp.task('webserver', function () {
