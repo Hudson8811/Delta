@@ -1,22 +1,29 @@
 section.game.game-values
-	.game__slide.game__slide1.active
+	.game__slide.game__slide1.active-slide
 		.game__slide-img 
 			img(src="images/game-values/game-values-bg-1.jpg", alt="")
 		.game__slide-content 
 			p.game__slide-title Этим летом ваша дача выглядит как дом со страниц журнала интерьеров. Но уже осенью вы рискуете остаться без полюбившихся элементов декора, мебели и техники. Как защитить вещи от дачных воришек?
 			form(action="#").game__form 
 				.game__form-question
-					input(type="radio" id="values-question1" name="slide1" value="no").game__form-input
+					input(type="radio" id="values-question1" name="slide1" value="fail").game__form-input
 					label(for="values-question1").game__form-label Зимовать мои вещи будут в городской квартире — и точка
 					.game__form-question-error
 						span Ошибка! 
-						span ???
+						span Несколько радикальное решение. Уже через несколько месяцев оно поставит вас перед необходимостью заново вить летнее гнездышко.
 				.game__form-question 
-					input(type="radio" id="values-question2" name="slide1" value="no").game__form-input
+					input(type="radio" id="values-question2" name="slide1" value="fail").game__form-input
 					label(for="values-question2").game__form-label Доплачу охране коттеджного поселка. Пусть следят за домом внимательнее
+					.game__form-question-error
+						span Ошибка! 
+						span Деньги не гарантируют практически ничего. В игру вступает человеческий фактор: охранник может потерять бдительность или отвлечься.
 				.game__form-question 
-					input(type="radio" id="values-question3" name="slide1" value="no").game__form-input
+					input(type="radio" id="values-question3" name="slide1" value="correct").game__form-input
 					label(for="values-question3").game__form-label Устрою круглосуточный прямой эфир из дачного дома и поставлю обычную сигнализацию
+					.game__form-question-error
+						span Верно!
+						span Следите за своей собственностью так, как будто вы находитесь на даче, с помощью системы видеонаблюдение. Договор с охранной компанией окончательно избавит вас от беспокойства. <a href="https://www.delta.ru/ohrana-kottedjej/">Проконсультируйтесь со специалистами</a> и подберите оптимальный пакет услуг против взлома и вандализма. Возможно, в вашем случае понадобится комплексная система с защитой от проникновения и видеонаблюдением на участке по всему периметру.
+
 	.game__slide.game__slide2
 		.game__slide-img
 			img(src="images/game-values/game-values-bg-2.jpg", alt="")
@@ -24,17 +31,23 @@ section.game.game-values
 			p.game__slide-title Одноклассники ребенка часто бывают в вашем доме, когда вы отсутствуете. В прошлый раз вы уже не досчитались пары недорогих, но горячо любимых украшений. Что делать?
 			form(action="#").game__form 
 				.game__form-question
-					input(type="radio" id="values-question4" name="slide2" value="no").game__form-input
+					input(type="radio" id="values-question4" name="slide2" value="fail").game__form-input
 					label(for="values-question4").game__form-label Запрещу приводить кого бы то ни было
 					.game__form-question-error
 						span Ошибка! 
-						span ???
+						span Запреты никогда не работают. Психологи отмечают, что ультиматумы приводят к обратному результату: ребенок нарушает запреты с азартом и тайно.
 				.game__form-question 
-					input(type="radio" id="values-question5" name="slide2" value="no").game__form-input
+					input(type="radio" id="values-question5" name="slide2" value="fail").game__form-input
 					label(for="values-question5").game__form-label Поговорю с ребенком, объясню, что его друзья не такие уж замечательные
+					.game__form-question-error
+						span Ошибка! 
+						span В подростковом возрасте друзья ближе родителей. Ребенок задумается, насколько вы доверяете его выбору.
 				.game__form-question 
-					input(type="radio" id="values-question6" name="slide2" value="no").game__form-input
+					input(type="radio" id="values-question6" name="slide2" value="corret").game__form-input
 					label(for="values-question6").game__form-label Установлю дома незаметную видеокамеру для ненавязчивого наблюдения за всей честной компанией. Звук отключу: знать, о чем они говорят, мне не нужно
+					.game__form-question-error
+						span Верно! 
+						span Как бы ни хотелось подслушать ребячью болтовню, вмешательство в личную жизнь чада имеет свои разумные пределы. Что касается видеокамеры, рекомендуем остановиться на лаконичных моделях. Они выглядят как музыкальная колонка или устройство иного назначения, но только не как инструмент для слежки. Установите камеру в своей спальне и в любое время, не отрываясь от работы, проверяйте, не забрел ли в вашу святая святых кто-то из детворы. О возможностях видеонаблюдения последнего поколения можно узнать <a href="https://www.delta.ru/video/">здесь</a>.
 	.game__slide.game__slide3
 		.game__slide-img 
 			img(src="images/game-values/game-values-bg-3.jpg", alt="")
@@ -42,17 +55,23 @@ section.game.game-values
 			p.game__slide-title Соседка взяла в привычку ходить к вам в гости. Скоро вы начинаете замечать, что она слишком поглощена вашим гардеробом, сияет глазами при виде вашей коллекции дизайнерских сумочек и ведет себя крайне странно. Как не обидеть соседку и при этом уберечь ценные вещи от потенциальной воровки?
 			form(action="#").game__form 
 				.game__form-question
-					input(type="radio" id="values-question7" name="slide3" value="no").game__form-input
+					input(type="radio" id="values-question7" name="slide3" value="fail").game__form-input
 					label(for="values-question7").game__form-label Нужно прекратить общение с этой коварной женщиной!
 					.game__form-question-error
 						span Ошибка! 
-						span ???
+						span Тем больше у нее поводов осуществить задуманную кражу. Минимизировать общение стоит, однако без конфликтов и обид. Ведь может сучиться и такое, что ее странное поведение — не более чем ваша мнительность.
 				.game__form-question 
-					input(type="radio" id="values-question8" name="slide3" value="no").game__form-input
+					input(type="radio" id="values-question8" name="slide3" value="fail").game__form-input
 					label(for="values-question8").game__form-label Начну жаловаться на нехватку денег, обычно срабатывает
+					.game__form-question-error
+						span Ошибка! 
+						span Эта стратегия работает только с честными людьми, не планирующими ничего противозаконного. А носить вещи из секонд-хенда и отказываться от любимого кулона и дорогого сердцу колечка из белого золота вам скоро надоест.
 				.game__form-question 
-					input(type="radio" id="values-question9" name="slide3" value="no").game__form-input
+					input(type="radio" id="values-question9" name="slide3" value="corret").game__form-input
 					label(for="values-question9").game__form-label Позабочусь о базовой охранной системе квартиры и продолжу добрые отношение с соседкой. Возможно, она замечательный, но несколько эмоциональный человек
+					.game__form-question-error
+						span Верно!
+						span Не стоит портить дружбу из-за ничем не подтвержденных подозрений. Но игнорировать тревожный набат интуиции тоже не следует. Всё, что вам нужно, — это защита квартиры от проникновения и автоматическая передача сигнала в центр мониторинга <a href="https://www.delta.ru/ohrana-kvartir/">вашей охранной компании</a> в случае взлома. Под устройства подобных систем сейчас не обязательно штробить стены, уничтожая свежий ремонт. Элементы охранных комплексов работают автономно и выглядят стильно в любом интерьере.
 	.game__slide.game__slide4
 		.game__slide-img 
 			img(src="images/game-values/game-values-bg-4.jpg", alt="")
@@ -60,17 +79,23 @@ section.game.game-values
 			p.game__slide-title Вам досталась в наследство невероятно дорогая семейная реликвия. Как о ней позаботиться?
 			form(action="#").game__form 
 				.game__form-question
-					input(type="radio" id="values-question10" name="slide4" value="no").game__form-input
+					input(type="radio" id="values-question10" name="slide4" value="fail").game__form-input
 					label(for="values-question10").game__form-label Спрячу в сейф, сейф встрою в стену, на стену повешу картину. Готово!
 					.game__form-question-error
 						span Ошибка! 
-						span ???
+						span Глубина стен в большинстве типовых домов не позволяет встраивать сейфы без повреждения несущих конструкций. К тому же для медвежатников кодовые замки не составляют проблемы. О привычке прятать ценности в морозилку или обувь они тоже осведомлены.
 				.game__form-question 
-					input(type="radio" id="values-question11" name="slide4" value="no").game__form-input
+					input(type="radio" id="values-question11" name="slide4" value="fail").game__form-input
 					label(for="values-question11").game__form-label Просто не скажу никому ни слова о наследстве
+					.game__form-question-error
+						span Ошибка! 
+						span Преступники могут получить нужную им информацию у других членов семьи. Как бы ваша задумка не привела к катастрофе. Помните, что при ограблении квартиры грабители зачастую стремятся избавиться от лишних свидетелей.
 				.game__form-question 
-					input(type="radio" id="values-question12" name="slide4" value="no").game__form-input
+					input(type="radio" id="values-question12" name="slide4" value="corret").game__form-input
 					label(for="values-question12").game__form-label Доверю хранение банку или охранной компании
+					.game__form-question-error
+						span Верно! 
+						span Крупные банки оборудованы передовыми охранными комплексами, поэтому грабители предпочитают с ними не связываться. Надзор охранной компании обойдется примерно в ту же сумму, и заодно вы получите безопасность всего имущества, находящегося в вашей квартире или доме. Ознакомьтесь с опциями <a href="https://www.delta.ru/ohrana-kvartir/">охранных систем Delta</a> уже сейчас.
 	.game__slide.game__slide5
 		.game__slide-img 
 			img(src="images/game-values/game-values-bg-5.jpg", alt="")
@@ -78,17 +103,23 @@ section.game.game-values
 			p.game__slide-title Мамочки с детской площадки, как известно, — самые ценные и надежные источники информации. Именно от них вы узнали об орудующей поблизости банде взломщиков и теперь не находите себе места от беспокойства. Обычно преступники забираются в квартиры, когда дома ни души, и выносят технику и драгоценности. Что делать?
 			form(action="#").game__form 
 				.game__form-question
-					input(type="radio" id="values-question13" name="slide5" value="no").game__form-input
+					input(type="radio" id="values-question13" name="slide5" value="fail").game__form-input
 					label(for="values-question13").game__form-label Мои соседи всегда дома. Попрошу их при появлении посторонних людей на лестничной клетке звонить в полицию
 					.game__form-question-error
 						span Ошибка! 
-						span ???
+						span Поскольку дома у соседей всегда кто-то есть, их квартира грабителям не интересна. Следовательно, соседи лично не заинтересованы в сохранности чужого имущества. Согласитесь, вряд ли они готовы по сменам дежурить у дверного глазка ради вас.
 				.game__form-question 
-					input(type="radio" id="values-question14" name="slide5" value="no").game__form-input
+					input(type="radio" id="values-question14" name="slide5" value="fail").game__form-input
 					label(for="values-question14").game__form-label Поставлю надежную дверь с десятком замков
+					.game__form-question-error
+						span Ошибка! 
+						span Ни одна дверь не защитит от матерого взломщика. Как только появляются новые системы замков, преступники находят способ вскрыть их в кратчайшие сроки.
 				.game__form-question 
-					input(type="radio" id="values-question15" name="slide5" value="no").game__form-input
+					input(type="radio" id="values-question15" name="slide5" value="corret").game__form-input
 					label(for="values-question15").game__form-label Позвоню в охранную компанию, там подскажут идеальный выход из ситуации
+					.game__form-question-error
+						span Верно! 
+						span Сотрудники охранных компаний не только устанавливают системы сигнализации и реагируют на тревожные вызывы. В их задачи входит поиск пакета услуг для каждого отдельно взятого случая. Специалисты <a href="https://www.delta.ru/ohrana-kvartir/">охранных систем Delta</a> учтут ваши пожелания по стоимости монтажа и обслуживания охранной системы, подберут ее комплектацию и подарят вам спокойствие и уверенность в том, что вы защищены чем-то более надежным, чем бронированная дверь. В первую очередь — людьми, которым не всё равно.
 	.game__result
 		.game__result-title Памятка для автоледи от Delta и Woman.ru
 		.game__result-content 
@@ -123,11 +154,4 @@ section.game.game-values
 					img(src="img/heart-fill.svg", alt="")
 					img(src="img/heart-fill.svg", alt="")
 					img(src="img/heart.svg", alt="")
-				.game__timer
-					.game__timer-days 00
-					span :
-					.game__timer-hours 00
-					span :
-					.game__timer-minutes 03
-					span :
-					.game__timer-seconds 54
+				.game__timer#timer 00:00:00:00

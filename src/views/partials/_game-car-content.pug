@@ -1,22 +1,28 @@
 section.game.game-car
-	.game__slide.game__slide1.active
+	.game__slide.game__slide1.active-slide
 		.game__slide-img 
 			img(src="images/game-car/game-car-bg-1.jpg", alt="")
 		.game__slide-content 
 			p.game__slide-title Вам приходится парковать свой совсем не дешевый автомобиль во дворе. Какие меры безопасности предпочтете?
 			form(action="#").game__form 
 				.game__form-question
-					input(type="radio" id="car-question1" name="slide1" value="no").game__form-input
+					input(type="radio" id="car-question1" name="slide1" value="fail").game__form-input
 					label(for="car-question1").game__form-label Поставлю сигнализацию погромче
 					.game__form-question-error
 						span Ошибка! 
 						span Сотрудники ГИБДД не устают повторять, что сигнализация не может считаться полноценным противоугонным средством. Пока вы будете спускаться во двор, машины уже и след пропадет.
 				.game__form-question 
-					input(type="radio" id="car-question2" name="slide1" value="no").game__form-input
+					input(type="radio" id="car-question2" name="slide1" value="fail").game__form-input
 					label(for="car-question2").game__form-label Поставлю блокиратор на рулевое колесо, как делал мой папа
+					.game__form-question-error
+						span Ошибка! 
+						span Механические противоугонные устройства остановят только хулиганов, ищущих, на чем бы погонять. Угонщики из преступных группировок тщательно готовятся идти «на дело». Снять блокиратор для них не составит труда.
 				.game__form-question 
-					input(type="radio" id="car-question3" name="slide1" value="no").game__form-input
+					input(type="radio" id="car-question3" name="slide1" value="corret").game__form-input
 					label(for="car-question3").game__form-label Установлю на машину современную охранную систему
+					.game__form-question-error
+						span Верно!
+						span Delta предлагает несколько вариантов охранных комплексов для автомобилей. Самый экономный из них — <a href="https://www.delta.ru/ohrana-auto-systems-3/">Delta Systems 3</a> с установкой скрытого поискового маяка, благодаря которому вы всегда определите местоположение автомобиля. Продвинутые охранные комплексы включают в себя круглосуточное спутниковое слежение, видеомониторинг и систему передачи сигналов тревоги в мониторинговый центр Delta. Ваш автомобиль окажется слишком крепким орешком для самых прожженных и технически подкованных угонщиков.
 	.game__slide.game__slide2
 		.game__slide-img
 			img(src="images/game-car/game-car-bg-2.jpg", alt="")
@@ -24,17 +30,23 @@ section.game.game-car
 			p.game__slide-title На время ремонта или приезда родственников ваш ребенок остался без своей комнаты. Теперь он просит ключи от машины, чтобы проводить время с друзьями подальше от домашней суеты. Но вас одолевают сомнения. Что если кто-то из сверстников принесет запрещенные вещества? Что если дети решат покататься и попадут в аварию?  
 			form(action="#").game__form 
 				.game__form-question
-					input(type="radio" id="car-question4" name="slide2" value="no").game__form-input
+					input(type="radio" id="car-question4" name="slide2" value="fail").game__form-input
 					label(for="car-question4").game__form-label Никаких тусовок в машине! Пусть сначала заработает на свою и сидит в ней хоть днями напролет
 					.game__form-question-error
 						span Ошибка! 
-						span ???
+						span Суровые запреты не способствуют доверительным отношениям между мамой и дочерью или сыном. Ребенок просто обидится и будет стараться проводить больше времени вне дома.
 				.game__form-question 
-					input(type="radio" id="car-question5" name="slide2" value="no").game__form-input
+					input(type="radio" id="car-question5" name="slide2" value="fail").game__form-input
 					label(for="car-question5").game__form-label Прежде чем отдавать ключи, выясню, с кем он собирается проводить время, и поговорю с родителями этих ребят. Если они производят приятное впечатление — почему бы и нет
+					.game__form-question-error
+						span Ошибка! 
+						span Вполне приличные с виду люди иногда оказываются родителями совершенно асоциальных хулиганов. Сами подростки в этом возрасте склонны бунтовать и ставить под сомнение ценности, привитые мамой и папой.
 				.game__form-question 
-					input(type="radio" id="car-question6" name="slide2" value="no").game__form-input
+					input(type="radio" id="car-question6" name="slide2" value="corret").game__form-input
 					label(for="car-question6").game__form-label Всё очень просто: ключ зажигания оставлю при себе. А еще установлю систему мониторинга — и пусть хоть дискотеку в салоне устраивают. Но с рядом условий: не курить, обшивку не портить, не мусорить
+					.game__form-question-error
+						span Верно! 
+						span Так вы покажете ребенку свое участие и предупредите порчу салона. Модуль видеомониторинга предусмотрен в охранном комплексе <a href="https://www.delta.ru/ohrana-auto-systems-7/">Delta Systems 7</a> — на случай, если подростки попадут в беду. И совсем не обязательно рассказывать ребенку, в чем суть охранного комплекса автомобиля. Пусть думает, что вы на досуге смотрите, что происходит в салоне. Если вам и правда нужно следить за всем в реальном времени, установите в салоне автономную камеру.
 	.game__slide.game__slide3
 		.game__slide-img 
 			img(src="images/game-car/game-car-bg-3.jpg", alt="")
@@ -42,17 +54,24 @@ section.game.game-car
 			p.game__slide-title Некая дама по какой-то причине решила, что у них с вашим мужем настоящая любовь. Появляющиеся с завидной регулярностью послания («Убирайся, стерва!» и «Разлучница!») на капоте вашего автомобиля говорят сами за себя. Похоже, вам в этой фантасмагори отводится роль мегеры, не желающей отпустить супруга в новую — непременно счастливую — жизнь. А машину жалко. Как поступите?
 			form(action="#").game__form 
 				.game__form-question
-					input(type="radio" id="car-question7" name="slide3" value="no").game__form-input
+					input(type="radio" id="car-question7" name="slide3" value="fail").game__form-input
 					label(for="car-question7").game__form-label Закачу скандал мужу — наверняка у него рыльце в пушку
 					.game__form-question-error
 						span Ошибка! 
-						span ???
+						span Поговорить с супругом — задача номер один, однако не рубите с плеча. Женщина может оказаться коллегой-любовницей, но ровно с той же вероятностью она просто не совсем здоровая женщина, придумавшая себе романтическую историю на ровном месте. Пусть разговор с супругом пройдет интеллигентно и без нервотрепки.
 				.game__form-question 
-					input(type="radio" id="car-question8" name="slide3" value="no").game__form-input
+					input(type="radio" id="car-question8" name="slide3" value="fail").game__form-input
 					label(for="car-question8").game__form-label Отыщу эту женщину и потребую возмещения ущерба. Грунтовка и покраска кузова обойдется в целое состояние!
+					.game__form-question-error
+						span Ошибка! 
+						span Что если ваши подозрения беспочвенны? Тогда в ближайшем окружении мужа ее точно не найти, придется устраивать засады во дворе. Вполне вероятно, что вашу машину спутали с другой. Еще один вариант: вы заняли чужое парковочное место, и вандал уверен, что имеет право именно на эти 13 квадратных метров.
 				.game__form-question 
-					input(type="radio" id="car-question9" name="slide3" value="no").game__form-input
+					input(type="radio" id="car-question9" name="slide3" value="corret").game__form-input
 					label(for="car-question9").game__form-label Посоветуюсь со специалистами, какую антивандальную систему безопасности выбрать для своей ласточки
+					.game__form-question-error
+						span Верно! 
+						span Выбрать и правда есть из чего. Так, охранный комплекс <a href="https://www.delta.ru/ohrana-auto-systems-7/">Delta Systems 7</a>, кроме спутникового блока на случай угона, защиты от эвакуации и других полезных элементов, включает в себя модуль видонаблюдения. Останется только передать запись с вашей предполагаемой соперницей в полицию вместе с заявлением. Пусть ею занимаются суд и психиатры. А если она окажется крайне опасной и, вооружившись, попытается причинить вам вред, когда вы находитесь в салоне, достаточно отправить сигнал тревоги в мониторинговый центр Delta. Спасатели примчатся по первому зову.
+
 	.game__slide.game__slide4
 		.game__slide-img 
 			img(src="images/game-car/game-car-bg-4.jpg", alt="")
@@ -60,17 +79,23 @@ section.game.game-car
 			p.game__slide-title Слышали о мужчине, который обнаружил взрывчатку в своем авто только благодаря своевременному прохождению ТО? Как быть, если кто-то задумает прикрепить к днищу вашего автомобиля самодельную бомбу или выведет из строя важную систему машины, да так, что вы об этом узнаете только в пути, когда уже будет слишком поздно?
 			form(action="#").game__form 
 				.game__form-question
-					input(type="radio" id="car-question10" name="slide4" value="no").game__form-input
+					input(type="radio" id="car-question10" name="slide4" value="fail").game__form-input
 					label(for="car-question10").game__form-label Пожалуй, тоже пройду ТО, внеочередное
 					.game__form-question-error
 						span Ошибка! 
-						span ???
+						span Вы действительно готовы ехать к своему дилеру каждый раз, когда вам кажется, что кто-то затаил на вас злобу? Подумайте еще.
 				.game__form-question 
-					input(type="radio" id="car-question11" name="slide4" value="no").game__form-input
+					input(type="radio" id="car-question11" name="slide4" value="fail").game__form-input
 					label(for="car-question11").game__form-label Каждый день буду проверять днище автомобиля и тросы
+					.game__form-question-error
+						span Ошибка! 
+						span Способов незаметно спрятать взрывчатку множество. Только сапер способен обнаружить смертоносное оружие, и только автослесарь с первого взгляда определит, что кто-то копался в тросах или двигателе.
 				.game__form-question 
-					input(type="radio" id="car-question12" name="slide4" value="no").game__form-input
+					input(type="radio" id="car-question12" name="slide4" value="corret").game__form-input
 					label(for="car-question12").game__form-label Кажется, меня спасет только система мониторинга. Пусть за неприкосновенностью машины следят специально обученные люди
+					.game__form-question-error
+						span Верно! 
+						span Современные охранные комплексы моментально реагируют на подозрительную активность вокруг автомобиля и отправляют тревожные сигналы в центры мониторинга компании, отвечающей за безопасность личного транспорта. Вам ничего не придется делать, всю работу возьмет на себя выездная группа быстрого реагирования. Беспокоитесь за двигатель? Обратите внимание на охранный комплекс <a href="https://www.delta.ru/ohrana-auto-systems-8/">Delta Systems 8</a>. Он, помимо перечисленных опций, включает в себя усиленные электромеханические замки для капота. 
 	.game__slide.game__slide5
 		.game__slide-img 
 			img(src="images/game-car/game-car-bg-5.jpg", alt="")
@@ -78,17 +103,23 @@ section.game.game-car
 			p.game__slide-title Вы оставили ребенка в машине буквально на десять минут, забежав за водой в гипермаркет. Вернувшись, не находите ни ребенка, ни авто. Правоохранители называют преступления такого типа «угоном с отягчающими», но это знание не принесет вам облегчения. Как избежать несчастья?
 			form(action="#").game__form 
 				.game__form-question
-					input(type="radio" id="car-question13" name="slide5" value="no").game__form-input
+					input(type="radio" id="car-question13" name="slide5" value="fail").game__form-input
 					label(for="car-question13").game__form-label Размещу по всему автомобилю наклейки «ребенок внутри». Преступники постыдятся рисковать жизнью малыша
 					.game__form-question-error
 						span Ошибка! 
-						span ???
+						span Злоумышленником может быть человек в состоянии алкогольного или наркотического опьянения. Он попросту не обратит внимания на предупреждающие наклейки.
 				.game__form-question 
-					input(type="radio" id="car-question14" name="slide5" value="no").game__form-input
+					input(type="radio" id="car-question14" name="slide5" value="fail").game__form-input
 					label(for="car-question14").game__form-label Поостерегусь ездить про криминальным районам города
+					.game__form-question-error
+						span Ошибка! 
+						span Не забывайте, что преступления происходят неожиданно, среди бела дня и во вполне благополучных районах.
 				.game__form-question 
-					input(type="radio" id="car-question15" name="slide5" value="no").game__form-input
+					input(type="radio" id="car-question15" name="slide5" value="corret").game__form-input
 					label(for="car-question15").game__form-label Еще до рождения ребенка озабочусь установкой охранной системы на автомобиль
+					.game__form-question-error
+						span Верно! 
+						span Всегда лучше готовиться к худшему и надеяться на лучшее. Охранные комплексы последнего поколения предотвратят проникновение угонщика в салон, а если что-то все-таки пойдет не так, отряд охраны немедленно отправится к месту нахождения автомобиля. Доверьте безопасность машины и находящихся в ней людей центру мониторинга <a href="https://www.delta.ru/ohrana-auto/">охранной компании Delta</a>. От круглосуточного неусыпного внимания операторов не ускользнет ни одна потенциально опасная мелочь. 
 	.game__result
 		.game__result-title Памятка для автоледи от Delta и Woman.ru
 		.game__result-content 
@@ -123,11 +154,4 @@ section.game.game-car
 					img(src="img/heart-fill.svg", alt="")
 					img(src="img/heart-fill.svg", alt="")
 					img(src="img/heart.svg", alt="")
-				.game__timer
-					.game__timer-days 00
-					span :
-					.game__timer-hours 00
-					span :
-					.game__timer-minutes 03
-					span :
-					.game__timer-seconds 54
+				.game__timer#timer 00:00:00:00
