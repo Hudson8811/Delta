@@ -64,6 +64,8 @@ document.addEventListener("DOMContentLoaded", function () {
 		const nextSlide = tickSlide();
 		const timer = startTimer();
 
+		let allowNext = false;
+
 		function startGame() {
 			let livesCount = 3;
 
@@ -74,10 +76,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 				if (target.value === "fail" && livesCount > 0) {
 					const invalidBlock = target.closest(".game__form-question");
-
 					livesCount--;
 					livesDecrease(livesCount);
 					showError(invalidBlock);
+					allowNext = true;
+					activeBtn(target);
 				}
 
 				if (livesCount === 0) {
@@ -86,10 +89,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
 				if (target.value === "correct") {
 					hideError();
-					nextSlide();
+					allowNext = true;
+					activeBtn(target);
+				}
+			});
+
+			document.addEventListener("click", (e) => {
+				let target = e.target;
+				if(target && target.id== 'brnNext'){
+					if (allowNext) {
+						nextSlide();
+						document.querySelectorAll(".game__form-btn").remove();
+						allowNext = false;
+					}
 				}
 			});
 		}
+
+		function activeBtn(elem){
+			let form = elem.closest('.game__form');
+			form.classList.add("with-btn");
+			let inputs = form.querySelectorAll("input");
+			inputs.forEach((input) => { input.disabled = true; });
+			let btnHtml = '<button class="game__form-btn" type="button" id="brnNext">Далее</button>';
+			form.insertAdjacentHTML('beforeend', btnHtml);
+		}
+
+
 
 		function startTimer() {
 			const timer = document.getElementById("timer");
