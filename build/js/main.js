@@ -6,6 +6,30 @@
 
 /* my scripts */
 document.addEventListener("DOMContentLoaded", function () {
+	const audioPlayer = () => {
+		const headerAudioBtn = document.querySelector(".header__button");
+		const footerAudioBtn = document.querySelector(".footer__button");
+
+		MUSIC_URL = "audio/audio.mp3";
+		const audio = new Audio(MUSIC_URL);
+		audio.autoplay = true;
+		document.head.append(audio);
+		const toggleAudio = () => {
+			if (!audio.paused) {
+				audio.pause();
+				audio.paused = true;
+			} else {
+				audio.play();
+				audio.paused = false;
+			}
+		};
+
+		headerAudioBtn.addEventListener("click", toggleAudio);
+		footerAudioBtn.addEventListener("click", toggleAudio);
+	};
+
+	audioPlayer();
+
 	const switchHomeImages = () => {
 		const buttonsWrapper = document.querySelector(".home-content__icons");
 		const backgroundImages = document.querySelectorAll(".overlay>img");
@@ -37,11 +61,9 @@ document.addEventListener("DOMContentLoaded", function () {
 	switchHomeImages();
 
 	const nextSlide = tickSlide();
+	const timer = startTimer();
 
 	const startGame = () => {
-		// const form = document.querySelector("form");
-		const timer = startTimer();
-
 		let livesCount = 3;
 
 		document.body.classList.add("game-is-on");
@@ -58,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			}
 
 			if (livesCount === 0) {
-				gameover(timer);
+				gameover("losing");
 			}
 
 			if (target.value === "correct") {
@@ -116,16 +138,21 @@ document.addEventListener("DOMContentLoaded", function () {
 		return timerInterval;
 	}
 
-	function stopTimer(timer) {
+	function stopTimer() {
 		clearInterval(timer);
 	}
 
-	function gameover(timer) {
+	function gameover(status) {
 		const gameSection = document.querySelector(".game");
+		const winTitle = `Вы спасли всех! На всякий случай скачайте памятку с советами по безопасности и повторите основные правила`;
+		const loseTitle = `Вы повержены! Изучите памятку безопасности и пройдите игру снова`;
 
 		gameSection.classList.add("game--finished");
 
-		stopTimer(timer);
+		gameSection.querySelector(".game__result-title").textContent =
+			status === "win" ? winTitle : loseTitle;
+
+		stopTimer();
 	}
 
 	function livesDecrease(livesCount) {
@@ -162,14 +189,25 @@ document.addEventListener("DOMContentLoaded", function () {
 		let currentSlide = 1;
 
 		return () => {
+			if (currentSlide === slidesCount) {
+				gameover("win");
+				return;
+			}
 			currentSlide++;
 			const activeSlide = document.querySelector(".active-slide");
 			activeSlide.classList.remove("active-slide");
 			slides[currentSlide - 1].classList.add("active-slide");
+			setSlidesCounter(currentSlide, slidesCount);
 		};
 	}
 
-	function increaseSlidesCounter() {}
+	function setSlidesCounter(currentSlide, slidesCount) {
+		const curSlide = document.querySelector(".game__slide-current");
+		const totalSlides = document.querySelector(".game__slide-count");
+
+		curSlide.textContent = currentSlide;
+		totalSlides.textContent = slidesCount;
+	}
 
 	const isGamePage = () => {
 		const regExp = /game/g;
