@@ -566,6 +566,7 @@
 		margin: auto;
 		height: 100%;
 		padding: 44px 0;
+		display: none;
 
 		@include media(tablet-993) {
 			max-width: calc(100% - 30px * 2);
@@ -659,11 +660,16 @@
 	}
 }
 
-.game {
-	&__slide {
-		display: none;
-	}
-	&__container {
-		display: none;
+.game--finished {
+	.game {
+		&__slide {
+			display: none;
+		}
+		&__container {
+			display: none;
+		}
+		&__result {
+			display: block;
+		}
 	}
 }
