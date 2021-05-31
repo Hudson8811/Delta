@@ -53,159 +53,161 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	switchHomeImages();
 
-	const nextSlide = tickSlide();
-	const timer = startTimer();
+	if (isGamePage()) {
+		const nextSlide = tickSlide();
+		const timer = startTimer();
 
-	const startGame = () => {
-		let livesCount = 3;
+		function startGame() {
+			let livesCount = 3;
 
-		document.body.classList.add("game-is-on");
+			document.body.classList.add("game-is-on");
 
-		document.addEventListener("change", (e) => {
-			let target = e.target;
+			document.addEventListener("change", (e) => {
+				let target = e.target;
 
-			if (target.value === "fail" && livesCount > 0) {
-				const invalidBlock = target.closest(".game__form-question");
+				if (target.value === "fail" && livesCount > 0) {
+					const invalidBlock = target.closest(".game__form-question");
 
-				livesCount--;
-				livesDecrease(livesCount);
-				showError(invalidBlock);
-			}
-
-			if (livesCount === 0) {
-				gameover("losing");
-			}
-
-			if (target.value === "correct") {
-				hideError();
-				nextSlide();
-			}
-		});
-	};
-
-	function startTimer() {
-		const timer = document.getElementById("timer");
-		const base = "60";
-
-		let d = "00";
-		let h = "00";
-		let min = "00";
-		let sec = "00";
-
-		const tick = () => {
-			sec++;
-
-			if (sec < "10") {
-				sec = "0" + sec;
-			}
-
-			if (sec === +base) {
-				sec = "00";
-				min++;
-				if (min < "10") {
-					min = "0" + min;
+					livesCount--;
+					livesDecrease(livesCount);
+					showError(invalidBlock);
 				}
-			}
 
-			if (min === base) {
-				min = "00";
-				h++;
-				if (h < "10") {
-					h = "0" + h;
+				if (livesCount === 0) {
+					gameover("losing");
 				}
-			}
 
-			if (h === "24") {
-				h = "00";
-				d++;
-				if (d < "10") {
-					d = "0" + d;
+				if (target.value === "correct") {
+					hideError();
+					nextSlide();
 				}
+			});
+		}
+
+		function startTimer() {
+			const timer = document.getElementById("timer");
+			const base = "60";
+
+			let d = "00";
+			let h = "00";
+			let min = "00";
+			let sec = "00";
+
+			const tick = () => {
+				sec++;
+
+				if (sec < "10") {
+					sec = "0" + sec;
+				}
+
+				if (sec === +base) {
+					sec = "00";
+					min++;
+					if (min < "10") {
+						min = "0" + min;
+					}
+				}
+
+				if (min === base) {
+					min = "00";
+					h++;
+					if (h < "10") {
+						h = "0" + h;
+					}
+				}
+
+				if (h === "24") {
+					h = "00";
+					d++;
+					if (d < "10") {
+						d = "0" + d;
+					}
+				}
+
+				timer.textContent = `${d}:${h}:${min}:${sec}`;
+			};
+
+			const timerInterval = setInterval(tick, 1000);
+
+			return timerInterval;
+		}
+
+		function stopTimer() {
+			clearInterval(timer);
+		}
+
+		function gameover(status) {
+			const gameSection = document.querySelector(".game");
+			const winTitle = `Вы спасли всех! На всякий случай скачайте памятку с советами по безопасности и повторите основные правила`;
+			const loseTitle = `Вы повержены! Изучите памятку безопасности и пройдите игру снова`;
+
+			gameSection.classList.add("game--finished");
+
+			gameSection.querySelector(".game__result-title").textContent =
+				status === "win" ? winTitle : loseTitle;
+
+			stopTimer();
+		}
+
+		function livesDecrease(livesCount) {
+			const livesMobileIcons = document.querySelector(".game__lives");
+			const livesDesktopIcons = document.querySelector(".footer__lives");
+
+			const livesMobile = livesMobileIcons.querySelectorAll("img");
+			const livesDesktop = livesDesktopIcons.querySelectorAll("img");
+
+			const ICON_SRC = "img/heart.svg";
+
+			livesMobile[livesCount].src = ICON_SRC;
+			livesDesktop[livesCount].src = ICON_SRC;
+		}
+
+		function showError(currentInvalidBlock) {
+			hideError();
+
+			currentInvalidBlock.classList.add("invalid");
+		}
+
+		function hideError() {
+			const invalidBlock = document.querySelector(".invalid");
+
+			if (invalidBlock) {
+				invalidBlock.classList.remove("invalid");
 			}
+		}
 
-			timer.textContent = `${d}:${h}:${min}:${sec}`;
-		};
+		function tickSlide() {
+			const slides = document.querySelectorAll(".game__slide");
+			const slidesCount = slides.length;
 
-		const timerInterval = setInterval(tick, 1000);
+			let currentSlide = 1;
 
-		return timerInterval;
-	}
+			return () => {
+				if (currentSlide === slidesCount) {
+					gameover("win");
+					return;
+				}
+				currentSlide++;
+				const activeSlide = document.querySelector(".active-slide");
+				activeSlide.classList.remove("active-slide");
+				slides[currentSlide - 1].classList.add("active-slide");
+				setSlidesCounter(currentSlide, slidesCount);
+			};
+		}
 
-	function stopTimer() {
-		clearInterval(timer);
-	}
+		function setSlidesCounter(currentSlide, slidesCount) {
+			const curSlide = document.querySelector(".game__slide-current");
+			const totalSlides = document.querySelector(".game__slide-count");
 
-	function gameover(status) {
-		const gameSection = document.querySelector(".game");
-		const winTitle = `Вы спасли всех! На всякий случай скачайте памятку с советами по безопасности и повторите основные правила`;
-		const loseTitle = `Вы повержены! Изучите памятку безопасности и пройдите игру снова`;
-
-		gameSection.classList.add("game--finished");
-
-		gameSection.querySelector(".game__result-title").textContent =
-			status === "win" ? winTitle : loseTitle;
-
-		stopTimer();
-	}
-
-	function livesDecrease(livesCount) {
-		const livesMobileIcons = document.querySelector(".game__lives");
-		const livesDesktopIcons = document.querySelector(".footer__lives");
-
-		const livesMobile = livesMobileIcons.querySelectorAll("img");
-		const livesDesktop = livesDesktopIcons.querySelectorAll("img");
-
-		const ICON_SRC = "img/heart.svg";
-
-		livesMobile[livesCount].src = ICON_SRC;
-		livesDesktop[livesCount].src = ICON_SRC;
-	}
-
-	function showError(currentInvalidBlock) {
-		hideError();
-
-		currentInvalidBlock.classList.add("invalid");
-	}
-
-	function hideError() {
-		const invalidBlock = document.querySelector(".invalid");
-
-		if (invalidBlock) {
-			invalidBlock.classList.remove("invalid");
+			curSlide.textContent = currentSlide;
+			totalSlides.textContent = slidesCount;
 		}
 	}
 
-	function tickSlide() {
-		const slides = document.querySelectorAll(".game__slide");
-		const slidesCount = slides.length;
-
-		let currentSlide = 1;
-
-		return () => {
-			if (currentSlide === slidesCount) {
-				gameover("win");
-				return;
-			}
-			currentSlide++;
-			const activeSlide = document.querySelector(".active-slide");
-			activeSlide.classList.remove("active-slide");
-			slides[currentSlide - 1].classList.add("active-slide");
-			setSlidesCounter(currentSlide, slidesCount);
-		};
-	}
-
-	function setSlidesCounter(currentSlide, slidesCount) {
-		const curSlide = document.querySelector(".game__slide-current");
-		const totalSlides = document.querySelector(".game__slide-count");
-
-		curSlide.textContent = currentSlide;
-		totalSlides.textContent = slidesCount;
-	}
-
-	const isGamePage = () => {
+	function isGamePage() {
 		const regExp = /game/g;
 		return regExp.test(window.location.pathname);
-	};
+	}
 
 	if (isGamePage()) {
 		startGame();
