@@ -335,6 +335,11 @@
 			margin-left: 41%;
 			margin-right: auto;
 
+			@media screen and (min-width: 1921px){
+				margin-left: 50%;
+				transform: translateX(-20%);
+			}
+
 			@include media(1550) {
 				max-width: 100%;
 				margin-left: 0;
@@ -368,6 +373,11 @@
 		letter-spacing: 0.03em;
 		color: #ffffff;
 		padding-bottom: 110px;
+
+		@media screen and (min-width: 1921px){
+			margin-left: 50%;
+			transform: translateX(-20%);
+		}
 
 		@include media(1550) {
 			max-width: 100%;
