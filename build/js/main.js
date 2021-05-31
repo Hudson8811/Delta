@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		footerAudioBtn.addEventListener("click", toggleAudio);
 	};
 
-	audioPlayer();
+	// audioPlayer();
 
 	const switchHomeImages = () => {
 		const buttonsWrapper = document.querySelector(".home-content__icons");
@@ -69,6 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		document.body.classList.add("game-is-on");
 
 		document.addEventListener("change", (e) => {
+			console.log(e);
 			let target = e.target;
 
 			if (target.value === "fail" && livesCount > 0) {
