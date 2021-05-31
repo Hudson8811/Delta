@@ -31,7 +31,8 @@
     </header>
     <main class="main">
       <section class="game game-house">
-        <div class="game__slide game__slide1"><img src="images/game-house/game-house-bg-1.jpg" alt="">
+        <div class="game__slide game__slide1 active">
+          <div class="game__slide-img"> <img src="images/game-house/game-house-bg-1.jpg" alt=""></div>
           <div class="game__slide-content"> 
             <p class="game__slide-title">Кто-то рисует в подъезде и на двери вашей квартиры граффити, а по вечерам на лестничных клетках собирается подозрительного вида молодежь. Ничего критичного, но вечером из дома выходить не хочется, да и дверь отмывать надоело. Что будете делать?</p>
             <form class="game__form" action="#"> 
@@ -51,10 +52,103 @@
             </form>
           </div>
         </div>
-        <div class="game__slide game__slide2"> </div>
-        <div class="game__slide game__slide3"></div>
-        <div class="game__slide game__slide4"></div>
-        <div class="game__slide game__slide5"></div>
+        <div class="game__slide game__slide2">
+          <div class="game__slide-img"><img src="images/game-house/game-house-bg-2.jpg" alt=""></div>
+          <div class="game__slide-content"> 
+            <p class="game__slide-title">Вы слышите в новостях, что по всей стране учащаются случаи вызрывов газа и пожары в жилых домах с сотнями и сотнями жертв. Как предотвратить несчастье в вашем доме?</p>
+            <form class="game__form" action="#"> 
+              <div class="game__form-question">
+                <input class="game__form-input" type="radio" id="house-question4" name="slide2" value="no">
+                <label class="game__form-label" for="house-question4">Достаточно заменить электропроводку. От газовой плиты придется отказаться</label>
+                <div class="game__form-question-error"><span>Ошибка! </span><span>К сожалению, профессиональных электриков, способных проложить проводку по всем правилам, найти непросто. А готовка на электроплите в доме с газовым снабжением влетит в копеечку. </span></div>
+              </div>
+              <div class="game__form-question"> 
+                <input class="game__form-input" type="radio" id="house-question5" name="slide2" value="no">
+                <label class="game__form-label" for="house-question5">Лучше переехать из квартиры в частный дом — там безопаснее</label>
+              </div>
+              <div class="game__form-question"> 
+                <input class="game__form-input" type="radio" id="house-question6" name="slide2" value="no">
+                <label class="game__form-label" for="house-question6">Установлю датчики на случай утечки газа и задымления</label>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="game__slide game__slide3">
+          <div class="game__slide-img"> <img src="images/game-house/game-house-bg-3.jpg" alt=""></div>
+          <div class="game__slide-content"> 
+            <p class="game__slide-title">В районе участились кражи со взломом в дневное время суток. Вы в отпуске по уходу за ребенком, без защиты и в одиночестве. Ваша знакомая, попытавшаяся отбиться от грабителей в собственной квартире, теперь в больнице с переломами и сотрясением. Что предпримете для защиты себя и малыша?</p>
+            <form class="game__form" action="#"> 
+              <div class="game__form-question">
+                <input class="game__form-input" type="radio" id="house-question7" name="slide3" value="no">
+                <label class="game__form-label" for="house-question7">Поставлю решетки на окна — и пусть воры попробуют протиснуться</label>
+                <div class="game__form-question-error"><span>Ошибка! </span><span>Опытным грабителям решетки и крепкие двери не помеха. К тому же забранные решетками окна для них как крестик на карте сокровищ: в этой квартире определенно есть чем поживиться.</span></div>
+              </div>
+              <div class="game__form-question"> 
+                <input class="game__form-input" type="radio" id="house-question8" name="slide3" value="no">
+                <label class="game__form-label" for="house-question8">Получу разрешение на ношение травматического пистолета. Пусть приходят, я готова!</label>
+              </div>
+              <div class="game__form-question"> 
+                <input class="game__form-input" type="radio" id="house-question9" name="slide3" value="no">
+                <label class="game__form-label" for="house-question9">Установлю камеру наблюдения над дверью и тревожную кнопку в квартире</label>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="game__slide game__slide4">
+          <div class="game__slide-img"> <img src="images/game-house/game-house-bg-4.jpg" alt=""></div>
+          <div class="game__slide-content"> 
+            <p class="game__slide-title">Возникла необходимость досрочно выйти из декрета на работу. Но на душе как-то неспокойно: придется нанимать для ребенка няню. Как вы позаботитесь о безопасности малыша и собственном спокойствии?</p>
+            <form class="game__form" action="#"> 
+              <div class="game__form-question">
+                <input class="game__form-input" type="radio" id="house-question10" name="slide4" value="no">
+                <label class="game__form-label" for="house-question10">Поищу няню через авторитетную фирму, потребую рекомендации, сертификаты, справку из ПНД</label>
+                <div class="game__form-question-error"><span>Ошибка! </span><span>К несчастью, рекомендации от благодарных нанимателей и справки из ПНД не гарантируют адекватность няни. Даже если вы хорошо поладите, чужая душа — потемки.</span></div>
+              </div>
+              <div class="game__form-question"> 
+                <input class="game__form-input" type="radio" id="house-question11" name="slide4" value="no">
+                <label class="game__form-label" for="house-question11">Вы не можете быть уверены, что у знакомой крепкая психика и приемлемый для вас метод воспитания детей. А что если эта женщина страдает от недиагностированной постродовой депрессии?</label>
+              </div>
+              <div class="game__form-question"> 
+                <input class="game__form-input" type="radio" id="house-question12" name="slide4" value="no">
+                <label class="game__form-label" for="house-question12">Установлю дома систему видеосъемки и тревожную кнопку</label>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="game__slide game__slide5">
+          <div class="game__slide-img"> <img src="images/game-house/game-house-bg-5.jpg" alt=""></div>
+          <div class="game__slide-content"> 
+            <p class="game__slide-title">Вы слышали о насильниках, которые следят за жертвой в подъезде и нападают на нее в лифте или у дверей квартиры? Часто жертвами становятся идущие из школы дети. Допустим, в момент возвращения ребенка вы еще на работе. Как не допустить самого худшего?</p>
+            <form class="game__form" action="#"> 
+              <div class="game__form-question">
+                <input class="game__form-input" type="radio" id="house-question13" name="slide5" value="no">
+                <label class="game__form-label" for="house-question13">Попрошу родителей одноклассника, живущего в нашем доме, провожать моего ребенка до двери квартиры</label>
+                <div class="game__form-question-error"><span>Ошибка! </span><span>Чужие люди — это всегда риск, какими бы милыми они ни казались. К тому же при всем желании соседи не могут взять ответственность за вашего школьника на себя.</span></div>
+              </div>
+              <div class="game__form-question"> 
+                <input class="game__form-input" type="radio" id="house-question14" name="slide5" value="no">
+                <label class="game__form-label" for="house-question14">Научу ребенка при виде подозрительных незнакомцев громко кричать: «Пожар, пожар!»</label>
+              </div>
+              <div class="game__form-question"> 
+                <input class="game__form-input" type="radio" id="house-question15" name="slide5" value="no">
+                <label class="game__form-label" for="house-question15">Установлю камеры над входом в квартиру и у входа в подъезд, научу ребенка пользоваться тревожной кнопкой</label>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="game__result">
+          <div class="game__result-title">Памятка для автоледи от Delta и Woman.ru</div>
+          <div class="game__result-content"> 
+            <ol class="game__result-list">
+              <li>Никогда не оставляйте машину открытой, блокируйте замки в любых ситуациях.</li>
+              <li>Не храните ценные вещи и документы в бардачке или на сиденьях автомобиля.</li>
+              <li>Старайтесь оставлять автомобиль на ночь только в охраняемых паркингах.</li>
+              <li>Оборудуйте авто комплексной противоугонгой защитой (сигнализация, иммобилайзеры, охранный комплекс, обслуживаемый специалистами в сфере безопасности).</li>
+              <li>Не подвозите незнакомцев.</li>
+            </ol>
+          </div>
+          <div class="game__result-title game__result-title--second">Счастливого пути!</div>
+        </div>
         <div class="container game__container">
           <div class="game__inner">
             <div class="game__top"> 
@@ -72,6 +166,7 @@
             </div>
             <div class="game__bottom"> 
               <div class="game__icons"> <img src="img/game-icons.svg" alt=""></div>
+              <div class="game__lives"><img src="img/heart-fill.svg" alt=""><img src="img/heart-fill.svg" alt=""><img src="img/heart.svg" alt=""></div>
               <div class="game__timer">
                 <div class="game__timer-days">00</div><span>:</span>
                 <div class="game__timer-hours">00</div><span>:</span>
