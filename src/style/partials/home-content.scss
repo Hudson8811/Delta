@@ -58,7 +58,7 @@
 			text-transform: uppercase;
 			font-size: 42px;
 			line-height: 51px;
-			color: #FFFFFF;
+			color: #ffffff;
 			padding-left: 8px;
 		}
 	}
@@ -104,7 +104,7 @@
 				}
 			}
 		}
-		
+
 		&-image {
 			position: absolute;
 			right: -26px;
@@ -165,11 +165,19 @@
 		}
 
 		&-item {
+			position: relative;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
 			cursor: pointer;
 			width: 178px;
+
+			@media (max-height: 950px) and (min-width: 1440px) {
+				span {
+					position: absolute;
+					top: 167px;
+				}
+			}
 
 			@include media(tablet-993) {
 				width: 80px;
@@ -226,7 +234,6 @@
 					}
 				}
 			}
-			
 
 			&:hover {
 				span {
@@ -304,5 +311,4 @@
 			}
 		}
 	}
-
 }
