@@ -96,17 +96,6 @@
 			width: 105px;
 		}
 
-		img {
-			width: 40px;
-
-			@include media(tablet-1440) {
-				width: 35px;
-			}
-
-			@include media(tablet-993) {
-				width: 30px;
-			}
-		}
 	}
 
 	&__social {

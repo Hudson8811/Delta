@@ -76,16 +76,41 @@
 
 	&__lives {
 		display: none;
-
 		@include media(mobile) {
 			display: flex;
+		}
 
-			img {
+		&-heart{
+			width: 40px;
+			height: 36px;
+			display: block;
+			position: relative;
+			color: white;
+
+			@include media(tablet-1440) {
+				width: 35px;
+			}
+			@include media(tablet-993) {
+				width: 30px;
+			}
+			@include media(mobile) {
 				width: 25px;
 				height: 24px;
-
 				&:not(:last-child) {
 					margin-right: 8px;
+				}
+			}
+			svg,
+			img {
+				display: block;
+				width: 100%;
+				height: 100%;
+				object-fit: contain;
+				position: absolute;
+				left: 0;
+				top: 0;
+				&.filled{
+					transition: 0.5s ease;
 				}
 			}
 		}
@@ -711,6 +736,36 @@
 				}
 			}
 		}
+
+		&-btn {
+			font-style: normal;
+			font-weight: normal;
+			font-size: 24px;
+			text-align: center;
+			letter-spacing: 0.03em;
+			text-transform: uppercase;
+			font-family: $secondaryFont;
+			color: $blue;
+			width: 390px;
+			padding: 12px 0 13px;
+			background: #FFFFFF;
+			display: block;
+			margin: 39px auto 0;
+			cursor: pointer;
+			transition: .3s;
+			border: 1px solid #FFFFFF;
+			box-sizing: border-box;
+			max-width: 100%;
+			&:hover{
+				color: #FFFFFF;
+				background: $blue;
+			}
+			@include media(mobile) {
+				width: 100%;
+				margin-top: 20px;
+				font-size: 20px;
+			}
+		}
 	}
 }
 
@@ -726,4 +781,8 @@
 			display: block;
 		}
 	}
+}
+
+.game--lose {
+	background-color: #151515;
 }

@@ -54,8 +54,8 @@ document.addEventListener("DOMContentLoaded", function () {
 	switchHomeImages();
 
 	if (isGamePage()) {
-		const nextSlide = tickSlide();
-		const timer = startTimer();
+		let nextSlide = tickSlide();
+		let timer = startTimer();
 
 		let allowNext = false;
 
@@ -92,9 +92,39 @@ document.addEventListener("DOMContentLoaded", function () {
 				if(target && target.id== 'brnNext'){
 					if (allowNext) {
 						nextSlide();
-						document.querySelectorAll(".game__form-btn").remove();
+						document.querySelectorAll(".game__form-btn").forEach(e => e.parentNode.removeChild(e));
 						allowNext = false;
 					}
+				}
+			});
+
+			document.addEventListener("click", (e) => {
+				let target = e.target;
+				if(target && target.id== 'reinitTest'){
+					document.getElementById("timer").textContent = '00:00:00:00';
+					timer = startTimer();
+					const gameSection = document.querySelector(".game");
+					gameSection.classList.remove("game--finished","game--lose");
+					gameSection.style.cssText = "";
+
+					const livesMobileIcons = document.querySelector(".game__lives");
+					const livesDesktopIcons = document.querySelector(".footer__lives");
+					const livesMobile = livesMobileIcons.querySelectorAll(".game__lives-heart .filled");
+					const livesDesktop = livesDesktopIcons.querySelectorAll(".game__lives-heart .filled");
+					livesMobile.forEach(e => e.style.cssText = "");
+					livesDesktop.forEach(e => e.style.cssText = "");
+
+					livesCount = 3;
+					allowNext = false;
+					document.querySelectorAll(".game__form-btn").forEach(e => e.parentNode.removeChild(e));
+					document.querySelectorAll('.game__form').forEach(e => e.classList.remove("with-btn"));
+					document.querySelectorAll(".game__form input").forEach(e => e.disabled = false);
+					document.querySelectorAll(".game__form-question").forEach(e => e.classList.remove("invalid"));
+					document.querySelectorAll("input:checked").forEach(e => e.checked = false);
+					document.querySelectorAll(".active-slide").forEach(e => e.classList.remove("active-slide"));
+					document.querySelectorAll(".game__slide")[0].classList.add('active-slide');
+					document.querySelector(".game__slide-current").textContent = '1';
+					nextSlide = tickSlide();
 				}
 			});
 		}
@@ -171,7 +201,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 			gameSection.querySelector(".game__result-title").textContent =
 				status === "win" ? winTitle : loseTitle;
-
+			if (status !== "win") {
+				gameSection.style.cssText = "transition: background-color 1s ease;";
+				gameSection.classList.add("game--lose");
+			}
 			stopTimer();
 		}
 
@@ -179,13 +212,17 @@ document.addEventListener("DOMContentLoaded", function () {
 			const livesMobileIcons = document.querySelector(".game__lives");
 			const livesDesktopIcons = document.querySelector(".footer__lives");
 
-			const livesMobile = livesMobileIcons.querySelectorAll("img");
-			const livesDesktop = livesDesktopIcons.querySelectorAll("img");
+			const livesMobile = livesMobileIcons.querySelectorAll(".game__lives-heart .filled");
+			const livesDesktop = livesDesktopIcons.querySelectorAll(".game__lives-heart .filled");
 
-			const ICON_SRC = "img/heart.svg";
 
-			livesMobile[livesCount].src = ICON_SRC;
-			livesDesktop[livesCount].src = ICON_SRC;
+			livesMobile[livesCount].style.cssText = "color: #d52032; transform: scale(2);";
+			livesDesktop[livesCount].style.cssText = "color: #d52032; transform: scale(2);";
+
+			setTimeout(function (){
+				livesMobile[livesCount].style.cssText = "color: black; transform: scale(0);";
+				livesDesktop[livesCount].style.cssText = "color: black; transform: scale(0);";
+			},500);
 		}
 
 		function showError(currentInvalidBlock) {
@@ -217,6 +254,7 @@ document.addEventListener("DOMContentLoaded", function () {
 				const activeSlide = document.querySelector(".active-slide");
 				activeSlide.classList.remove("active-slide");
 				slides[currentSlide - 1].classList.add("active-slide");
+				console.log(currentSlide);
 				setSlidesCounter(currentSlide, slidesCount);
 			};
 		}
