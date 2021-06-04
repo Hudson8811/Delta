@@ -21,8 +21,13 @@ html(lang="ru")
 		block header
 			include ../partials/_header
 
-		main.main
-			block main
+		if page.game === true
+			main.main.main--game
+				block main
+		else
+			main.main
+				block main
+
 
 		block footer
 			include ../partials/_footer

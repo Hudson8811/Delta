@@ -88,7 +88,9 @@ document.addEventListener("DOMContentLoaded", function () {
 				}
 
 				if (target.value === "correct") {
-					hideError();
+					const correctBlock = target.closest(".game__form-question");
+					showError(correctBlock);
+					//hideError();
 					allowNext = true;
 					activeBtn(target);
 				}
@@ -201,12 +203,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		function gameover(status) {
 			const gameSection = document.querySelector(".game");
-			const winTitle = `Вы спасли всех! На всякий случай скачайте памятку с советами по безопасности и повторите основные правила`;
-			const loseTitle = `Вы повержены! Изучите памятку безопасности и пройдите игру снова`;
+			let testType = gameSection.getAttribute('data-type');
+			let winTitle = `Вы спасли всех! На всякий случай изучите памятку с советами по безопасности от <a href="https://www.delta.ru" target="_blank">Delta</a> и Woman.ru и повторите основные правила`;
+			let loseTitle = `Вы повержены! Изучите памятку безопасности и пройдите игру снова`;
+
+			switch (testType) {
+				case 'car':
+					loseTitle = 'Вы повержены! Изучите памятку для автоледи от <a href="https://www.delta.ru" target="_blank">Delta</a> и Woman.ru и пройдите игру снова';
+					break;
+				case 'house':
+					loseTitle = 'Вы повержены! Изучите памятку для защиты недвижимого имущества от <a href="https://www.delta.ru" target="_blank">Delta</a> и Woman.ru и пройдите игру снова';
+					break;
+				case 'values':
+					loseTitle = 'Вы повержены! Изучите памятку <a href="https://www.delta.ru" target="_blank">Delta</a> и Woman.ru для защиты особенно ценных предметов и наличных средств и пройдите игру снова';
+					break;
+			}
 
 			gameSection.classList.add("game--finished");
 
-			gameSection.querySelector(".game__result-title").textContent =
+			gameSection.querySelector(".game__result-title").innerHTML =
 				status === "win" ? winTitle : loseTitle;
 			if (status !== "win") {
 				gameSection.style.cssText = "transition: background-color 1s ease;";
@@ -261,7 +276,6 @@ document.addEventListener("DOMContentLoaded", function () {
 				const activeSlide = document.querySelector(".active-slide");
 				activeSlide.classList.remove("active-slide");
 				slides[currentSlide - 1].classList.add("active-slide");
-				console.log(currentSlide);
 				setSlidesCounter(currentSlide, slidesCount);
 			};
 		}
@@ -284,3 +298,34 @@ document.addEventListener("DOMContentLoaded", function () {
 		startGame();
 	}
 });
+
+window.addEventListener('load', (event) => {
+	let homeIcons = document.querySelector('.home-content__icon');
+	if (homeIcons){
+		if (!isElementInViewport(homeIcons)){
+			addScrollDownArrow();
+		}
+	}
+});
+
+function isElementInViewport (el) {
+	if (typeof jQuery === "function" && el instanceof jQuery) {
+		el = el[0];
+	}
+	var rect = el.getBoundingClientRect();
+	return (
+		rect.top >= 0 &&
+		rect.left >= 0 &&
+		rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /* or $(window).height() */
+		rect.right <= (window.innerWidth || document.documentElement.clientWidth) /* or $(window).width() */
+	);
+}
+
+function addScrollDownArrow () {
+	let container = document.querySelector('.home-content__container');
+	let arrowHtml = '<div class="home-content__arrow"><img src="img/arrow-down.svg" alt=""></div>';
+	container.insertAdjacentHTML('beforeend', arrowHtml);
+	window.addEventListener('scroll', function(e) {
+		document.querySelector('.home-content__arrow').classList.add("hide");
+	});
+}

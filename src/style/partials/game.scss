@@ -1,6 +1,16 @@
+.main--game{
+	@include media(mobile) {
+		display: flex;
+		flex-direction: column;
+	}
+}
+
 .game {
 	background-color: $blue;
 	height: 100%;
+	@include media(mobile) {
+		flex-grow: 1;
+	}
 
 	&__container {
 		height: 100%;
