@@ -54,12 +54,11 @@ document.addEventListener("DOMContentLoaded", function () {
 	switchHomeImages();
 
 	if (isGamePage()) {
-		let nextSlide = tickSlide();
 		let timer = startTimer();
-
 		let allowNext = false;
 
 		function startGame() {
+			let nextSlide = tickSlide();
 			let livesCount = 3;
 
 			document.body.classList.add("game-is-on");
@@ -131,6 +130,84 @@ document.addEventListener("DOMContentLoaded", function () {
 			});
 		}
 
+		function generateGame(testType = ''){
+			if (testType){
+				let jsonUrl = '';
+				switch (testType){
+					case "car":
+						jsonUrl = 'questions/car.json';
+						break;
+					case "house":
+						jsonUrl = 'questions/house.json';
+						break;
+					case "values":
+						jsonUrl = 'questions/values.json';
+						break;
+				}
+
+				document.querySelectorAll(".game__slide").forEach(e => e.parentNode.removeChild(e));
+
+				getJSON(jsonUrl,function(err, data) {
+					if (err !== null) {S
+						console.log('Something went wrong: ' + err);
+					} else {
+						let slide = 0;
+						let answerIndex = 0;
+						let $outHtml = '';
+						Object.entries(data.test).forEach(entry => {
+							slide ++;
+							const [key, value] = entry;
+							let quest = value['question'],
+								img = value['img'],
+								answers = value['answers'];
+							if (slide === 1){
+								$outHtml += '<div class="game__slide game__slide'+slide+' active-slide">\n';
+							} else {
+								$outHtml += '<div class="game__slide game__slide'+slide+'">\n';
+							}
+
+							$outHtml += '<div class="game__slide-img"><img src="'+img+'" alt=""></div>\n' +
+								'<div class="game__slide-content"> \n' +
+								'<p class="game__slide-title">'+quest+'</p>\n' +
+								'<form class="game__form" action="#"> \n';
+
+							const randomly = () => Math.random() - 0.5;
+							const randomAnswers = Array(answers.length).fill({});
+							const dynamicAnswers = [].concat(answers).sort(randomly);
+							randomAnswers.forEach((t, i) => {
+								let answer = dynamicAnswers[i];
+								answerIndex++;
+								let answerText = answer.text,
+									answerTip = answer.tip,
+									answerValid = answer.valid,
+									answerValidStatus = 'fail',
+									answerValidText = 'Ошибка';
+								if (answerValid){
+									answerValidStatus = 'correct';
+									answerValidText = 'Верно';
+								}
+
+								$outHtml +=	'<div class="game__form-question">\n' +
+									'<input class="game__form-input" type="radio" id="car-question'+answerIndex+'" name="slide1" value="'+answerValidStatus+'">\n' +
+									'<label class="game__form-label" for="car-question'+answerIndex+'">'+answerText+'</label>\n' +
+									'<div class="game__form-question-error"><span>'+answerValidText+'! </span><span>'+answerTip+'</span></div>\n' +
+									'</div>\n';
+							});
+
+							$outHtml +=	'</form>\n' +
+								'</div>\n' +
+								'</div>';
+						});
+
+						document.querySelector(".game").insertAdjacentHTML('afterbegin', $outHtml);
+						startGame();
+					}
+				});
+
+
+			}
+		}
+
 		function activeBtn(elem){
 			let form = elem.closest('.game__form');
 			form.classList.add("with-btn");
@@ -138,6 +215,10 @@ document.addEventListener("DOMContentLoaded", function () {
 			inputs.forEach((input) => { input.disabled = true; });
 			let btnHtml = '<button class="game__form-btn" type="button" id="brnNext">Далее</button>';
 			form.insertAdjacentHTML('beforeend', btnHtml);
+
+			let newBtn = document.querySelector('.game__form-btn');
+			let box = elem.closest('.game__slide-content');
+			scrollToElm( box, newBtn , 0.5 );
 		}
 
 
@@ -257,7 +338,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		function tickSlide() {
 			const slides = document.querySelectorAll(".game__slide");
 			const slidesCount = slides.length;
-
 			let currentSlide = 1;
 
 			return () => {
@@ -276,11 +356,13 @@ document.addEventListener("DOMContentLoaded", function () {
 		function setSlidesCounter(currentSlide, slidesCount) {
 			const curSlide = document.querySelector(".game__slide-current");
 			const totalSlides = document.querySelector(".game__slide-count");
-
 			curSlide.textContent = currentSlide;
 			totalSlides.textContent = slidesCount;
 		}
 	}
+
+
+
 
 	function isGamePage() {
 		const regExp = /game/g;
@@ -288,7 +370,8 @@ document.addEventListener("DOMContentLoaded", function () {
 	}
 
 	if (isGamePage()) {
-		startGame();
+		let testType = document.querySelector(".game").getAttribute('data-type');
+		generateGame(testType);
 	}
 });
 
@@ -322,3 +405,61 @@ function addScrollDownArrow () {
 		document.querySelector('.home-content__arrow').classList.add("hide");
 	});
 }
+
+var getJSON = function(url, callback) {
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET', url, true);
+	xhr.responseType = 'json';
+	xhr.onload = function() {
+		var status = xhr.status;
+		if (status === 200) {
+			callback(null, xhr.response);
+		} else {
+			callback(status, xhr.response);
+		}
+	};
+	xhr.send();
+};
+
+
+function scrollToElm(container, elm, duration = 1){
+	var pos = getRelativePos(elm);
+	scrollTo( container, pos.top , duration);
+}
+
+function getRelativePos(elm){
+	var pPos = elm.parentNode.getBoundingClientRect(),
+		cPos = elm.getBoundingClientRect(),
+		pos = {};
+
+	pos.top    = cPos.top    - pPos.top + elm.parentNode.scrollTop,
+		pos.right  = cPos.right  - pPos.right,
+		pos.bottom = cPos.bottom - pPos.bottom,
+		pos.left   = cPos.left   - pPos.left;
+
+	return pos;
+}
+
+function scrollTo(element, to, duration, onDone) {
+	var start = element.scrollTop,
+		change = to - start,
+		startTime = performance.now(),
+		val, now, elapsed, t;
+
+	function animateScroll(){
+		now = performance.now();
+		elapsed = (now - startTime)/1000;
+		t = (elapsed/duration);
+
+		element.scrollTop = start + change * easeInOutQuad(t);
+
+		if( t < 1 )
+			window.requestAnimationFrame(animateScroll);
+		else
+			onDone && onDone();
+	};
+
+	animateScroll();
+}
+
+function easeInOutQuad(t){ return t<.5 ? 2*t*t : -1+(4-2*t)*t };

@@ -2,8 +2,13 @@ header.header
 	.container.header__container 
 		img(src="./img/frame.svg", alt="").frame.header__frame
 		.header__inner
-			a(href="/index.html").header__logo
-				img(src="./img/logo.svg", alt="")
+			if page.home === true
+				a(href="https://www.delta.ru/" target="_blank").header__logo
+					img(src="./img/logo.svg", alt="")
+			else
+				a(href="/index.html").header__logo
+					img(src="./img/logo.svg", alt="")
+
 			nav.header__nav 
 				ul 
 					li 
